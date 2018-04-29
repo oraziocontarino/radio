@@ -113,13 +113,18 @@ class Webhook{
 	}
 
 	public static function getDirectoriesWithMp3(){
+		HelperFunctions::log("getDirectoriesWithMp3 1");
         $dirs = array_filter(glob('*'), 'is_dir');
-		$a = 5;
-		$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("/media/pi"), RecursiveIteratorIterator::SELF_FIRST);
+		HelperFunctions::log("getDirectoriesWithMp3 2");
+		$recursiveDirectoryIterator = new RecursiveDirectoryIterator("/media/pi");
+		HelperFunctions::log("getDirectoriesWithMp3 3");
+		$iterator = new RecursiveIteratorIterator($recursiveDirectoryIterator, RecursiveIteratorIterator::SELF_FIRST);
+		HelperFunctions::log("getDirectoriesWithMp3 4");
 		foreach($iterator as $file) {
 			if($file->isDir()) {
 				HelperFunctions::log(strtoupper($file->getRealpath()), PHP_EOL);
 			}
 		}
+		HelperFunctions::log("getDirectoriesWithMp3 5");
     }
 }
