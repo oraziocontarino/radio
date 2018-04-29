@@ -96,6 +96,9 @@ class Webhook{
 	private static function getStatusAPI(){
 		HelperFunctions::log("getStatusAPI begin");
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
+		HelperFunctions::log("getStatusAPI before parse");
+		$status = new SimpleXMLElement($xmlstr);
+		HelperFunctions::log("getStatusAPI after parse");
 		HelperFunctions::log("getStatusAPI end");
 		return $xmlstr;
 	}
