@@ -77,7 +77,7 @@ class Webhook{
 			}
 		}
 		HelperFunctions::log("getStatusResponse finished A");
-		sleep(1000);
+		sleep(1);
 		return json_encode($server_status);
 	}
 	private static function compareStatus($client_status, $server_status){
