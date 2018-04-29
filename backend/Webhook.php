@@ -94,8 +94,9 @@ class Webhook{
 	private static function getStatusAPI(){
 		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
-		return "-CCC-xmlstr:".$xmlstr;
+
 		$status = new SimpleXMLElement($xmlstr);
+		return "-CCC-xmlstr:".$xmlstr;
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
 		$output["length"] = strval($status->length);
