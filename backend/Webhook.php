@@ -98,7 +98,8 @@ class Webhook{
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
 		HelperFunctions::log("getStatusAPI before parse");
 		try{
-			$status = new SimpleXMLElement($xmlstr);
+			$status = xml2ary($xmlstr);
+			//$status = new SimpleXMLElement($xmlstr);
 		}catch(Exception $e){
 			HelperFunctions::log("getStatusAPI error parse");
 		}
