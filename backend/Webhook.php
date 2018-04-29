@@ -59,8 +59,9 @@ class Webhook{
 		if(!isset($request["vlcInterfaceStatus"]) || empty($request["vlcInterfaceStatus"])){
 			HelperFunctions::log("getStatusResponse init A");
 			$server_status = self::getStatusAPI();
-		}else{
 			HelperFunctions::log("getStatusResponse init B");
+		}else{
+			HelperFunctions::log("getStatusResponse init C");
 			//check if something changed
 			$client_status = $request["vlcInterfaceStatus"];
 			$changed = false;
