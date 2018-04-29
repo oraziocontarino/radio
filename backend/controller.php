@@ -1,6 +1,6 @@
 <?php
 include "Webhook.php";
-
-Webhook::doGet($_GET);
-Webhook::doPost($_POST);
+echo "ciao";
+//Webhook::doGet($_GET);
+//Webhook::doPost($_POST);
 ?>
