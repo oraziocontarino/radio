@@ -28,8 +28,10 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "test":
-			$os = HelperFunctions::getOs();
+			//$os = HelperFunctions::getOs();
 			//HelperFunctions::log($os);
+			
+			self::getDirectoriesWithMp3();
 			break;
 			case "playFolder":
 				self::playFolder($request);
@@ -74,7 +76,6 @@ class Webhook{
 				$current_update_count ++;
 			}
 		}
-		getDirectoriesWithMp3();
 		sleep(10);
 		return json_encode($server_status);
 	}
@@ -113,13 +114,9 @@ class Webhook{
 	public static function getDirectoriesWithMp3(){
         $dirs = array_filter(glob('*'), 'is_dir');
 		$a = 5;
-		$iterator = new RecursiveIteratorIterator(
-					new RecursiveDirectoryIterator("/media/pi"), 
-				RecursiveIteratorIterator::SELF_FIRST);
-
+		$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("/media/pi"), RecursiveIteratorIterator::SELF_FIRST);
 		foreach($iterator as $file) {
 			if($file->isDir()) {
-				
 				HelperFunctions::log(strtoupper($file->getRealpath()), PHP_EOL);
 			}
 		}
