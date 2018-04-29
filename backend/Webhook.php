@@ -98,7 +98,12 @@ class Webhook{
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
 		HelperFunctions::log("getStatusAPI before file get contents");
 		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
-		$status = new SimpleXMLElement($xmlstr);
+		try{
+			$status = new SimpleXMLElement($xmlstr);
+		}catch(Exception $e){
+			HelperFunctions::log("getStatusAPI error SimpleXMLElement");
+			HelperFunctions::log($e->getMessage());
+		}
 		HelperFunctions::log("getStatusAPI after SimpleXMLElement");
 		HelperFunctions::log("getStatusAPI 1");
 		$output["state"] = strval($status->state);
