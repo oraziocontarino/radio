@@ -97,8 +97,6 @@ class Webhook{
 		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
 		HelperFunctions::log("getStatusAPI before file get contents");
-		HelperFunctions::log("getStatusAPI xmlstring");
-		HelperFunctions::log($xmlstr);
 		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
 		$status = new SimpleXMLElement($xmlstr);
 		HelperFunctions::log("getStatusAPI after SimpleXMLElement");
@@ -113,7 +111,10 @@ class Webhook{
 				$output["track_name"] = strval($value);
 			}
 		}
+		
 		$output["debug"] = $xmlstr;
+		HelperFunctions::log("getStatusAPI end");
+		HelperFunctions::log($output);
 		return $output;
 	}
 }
