@@ -16,7 +16,7 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "status":
-				//echo self::getStatusResponse($request);
+				echo self::getStatusResponse($request);
 			break;
 		}
 	}
@@ -92,6 +92,8 @@ class Webhook{
 	private static function getStatusAPI(){
 		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
+		HelperFunctions::log("debug");
+		HelperFunctions::log($xmlstr);
 		$status = new SimpleXMLElement($xmlstr);
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
