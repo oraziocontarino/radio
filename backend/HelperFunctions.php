@@ -1,6 +1,6 @@
 <?php 
 class HelperFunctions{
-    private static $log_file = "../log/backend.log";
+    private static $log_file = "/var/www/project-radio.com/public_html/radio/log/backend.log";
     public static $OS_WINDOWS = "windows";
     public static $OS_LINUX = "linux";
     
