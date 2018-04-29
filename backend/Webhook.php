@@ -16,7 +16,7 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "status":
-				echo self::getStatusResponse($request);
+				//echo self::getStatusResponse($request);
 			break;
 		}
 	}
