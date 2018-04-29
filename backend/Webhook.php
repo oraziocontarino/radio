@@ -54,12 +54,12 @@ class Webhook{
 	}
 
 	private static function getStatusResponse($request){
-		HelperFunctions::log("getStatusResponse init");
 		$server_status = null;
 		if(!isset($request["vlcInterfaceStatus"]) || empty($request["vlcInterfaceStatus"])){
+			HelperFunctions::log("getStatusResponse init A");
 			$server_status = self::getStatusAPI();
 		}else{
-			HelperFunctions::log("getStatusResponse init C");
+			HelperFunctions::log("getStatusResponse init B");
 			//check if something changed
 			$client_status = $request["vlcInterfaceStatus"];
 			$changed = false;
@@ -76,7 +76,7 @@ class Webhook{
 				$current_update_count ++;
 			}
 		}
-		HelperFunctions::log("getStatusResponse finished A");
+		HelperFunctions::log("getStatusResponse finished");
 		sleep(1);
 		return json_encode($server_status);
 	}
@@ -96,7 +96,6 @@ class Webhook{
 	private static function getStatusAPI(){
 		HelperFunctions::log("getStatusAPI begin");
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
-		HelperFunctions::log($xmlstr);
 		HelperFunctions::log("getStatusAPI end");
 		return $xmlstr;
 	}
