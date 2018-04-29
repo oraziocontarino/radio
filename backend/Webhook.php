@@ -29,9 +29,10 @@ class Webhook{
 		switch($request["api"]){
 			case "test":
 			//$os = HelperFunctions::getOs();
-			//HelperFunctions::log($os);
+			HelperFunctions::log("testAPI");
 			
 			self::getDirectoriesWithMp3();
+			HelperFunctions::log("testAPI end");
 			break;
 			case "playFolder":
 				self::playFolder($request);
