@@ -16,9 +16,7 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "status":
-				HelperFunctions::log("banana222444");
-				echo "-AAA".self::getStatusResponse($request);
-				echo "VLC NON STARTATO! ".self::getStatusResponse($request);
+				echo self::getStatusResponse($request);
 			break;
 		}
 	}
@@ -56,16 +54,17 @@ class Webhook{
 	}
 
 	private static function getStatusResponse($request){
+		HelperFunctions::log("getStatusResponse init");
 		$server_status = null;
 		if(!isset($request["vlcInterfaceStatus"]) || empty($request["vlcInterfaceStatus"])){
+			HelperFunctions::log("getStatusResponse init A");
 			$server_status = self::getStatusAPI();
-			return "-BBB".$server_status;
 		}else{
+			HelperFunctions::log("getStatusResponse init B");
 			//check if something changed
 			$client_status = $request["vlcInterfaceStatus"];
 			$changed = false;
 			$current_update_count = 0;
-			return "bananeeeee";
 			while(!$changed){
 				$server_status = self::getStatusAPI();
 				$changed = self::compareStatus($client_status, $server_status);
@@ -94,12 +93,15 @@ class Webhook{
 	}
 
 	private static function getStatusAPI(){
+		HelperFunctions::log("getStatusAPI init");
 		$output = [];
-		return "stop!";
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
-
+		HelperFunctions::log("getStatusAPI before file get contents");
+		HelperFunctions::log("getStatusAPI xmlstring");
+		HelperFunctions::log($xmlstr);
+		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
 		$status = new SimpleXMLElement($xmlstr);
-		return "-CCC-xmlstr:".$xmlstr;
+		HelperFunctions::log("getStatusAPI after SimpleXMLElement");
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
 		$output["length"] = strval($status->length);
