@@ -91,9 +91,10 @@ class Webhook{
 
 	private static function getStatusAPI(){
 		$output = [];
+		try{
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
-		HelperFunctions::log("debug");
-		HelperFunctions::log($xmlstr);
+		//HelperFunctions::log("debug");
+		//HelperFunctions::log($xmlstr);
 		$status = new SimpleXMLElement($xmlstr);
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
@@ -107,6 +108,9 @@ class Webhook{
 			}
 		}
 		$output["debug"] = $xmlstr;
+		}catch(Exception $e){
+			$output["error"] = "getStatusApi Error!";
+		}
 		return $output;
 	}
 }
