@@ -112,7 +112,7 @@ class Webhook{
 		return $output;
 	}
 
-	public static function getDirectoriesWithMp3(){
+	private static function getDirectoriesWithMp3(){
 		HelperFunctions::log("getDirectoriesWithMp3 1");
         $dirs = array_filter(glob('*'), 'is_dir');
 		HelperFunctions::log("getDirectoriesWithMp3 2");
