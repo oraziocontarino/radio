@@ -56,8 +56,8 @@ class Webhook{
 	private static function getStatusResponse($request){
 		$server_status = null;
 		if(!isset($request["vlcInterfaceStatus"]) || empty($request["vlcInterfaceStatus"])){
-			return;
 			$server_status = self::getStatusAPI();
+			return;
 		}else{
 			//check if something changed
 			$client_status = $request["vlcInterfaceStatus"];
@@ -93,6 +93,8 @@ class Webhook{
 	private static function getStatusAPI(){
 		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
+		echo $xmlstr;
+		return;
 		$status = new SimpleXMLElement($xmlstr);
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
