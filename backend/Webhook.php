@@ -19,7 +19,7 @@ class Webhook{
 				if(HelperFunctions::urlExists(ServerConfig::getBaseUrl().self::$endpoint["status"])){
 					echo "-AAA".self::getStatusResponse($request);
 				}
-				echo "VLC NON STARTATO!";
+				echo "VLC NON STARTATO! ".self::getStatusResponse($request);
 			break;
 		}
 	}
