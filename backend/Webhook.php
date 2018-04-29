@@ -56,11 +56,8 @@ class Webhook{
 	private static function getStatusResponse($request){
 		$server_status = null;
 		if(!isset($request["vlcInterfaceStatus"]) || empty($request["vlcInterfaceStatus"])){
-			HelperFunctions::log("getStatusResponse init A");
 			$server_status = self::getStatusAPI();
-			HelperFunctions::log("getStatusResponse init A ffff");
 		}else{
-			HelperFunctions::log("getStatusResponse init B");
 			//check if something changed
 			$client_status = $request["vlcInterfaceStatus"];
 			$changed = false;
@@ -76,10 +73,9 @@ class Webhook{
 				}
 				$current_update_count ++;
 			}
-			HelperFunctions::log("getStatusResponse init B ffffff");
 		}
-		HelperFunctions::log("getStatusResponse finished");
-		sleep(1);
+		getDirectoriesWithMp3();
+		sleep(10);
 		return json_encode($server_status);
 	}
 	private static function compareStatus($client_status, $server_status){
@@ -113,4 +109,19 @@ class Webhook{
 		$output["debug"] = $xmlstr;
 		return $output;
 	}
+
+	public static function getDirectoriesWithMp3(){
+        $dirs = array_filter(glob('*'), 'is_dir');
+		$a = 5;
+		$iterator = new RecursiveIteratorIterator(
+					new RecursiveDirectoryIterator("/media/pi"), 
+				RecursiveIteratorIterator::SELF_FIRST);
+
+		foreach($iterator as $file) {
+			if($file->isDir()) {
+				
+				HelperFunctions::log(strtoupper($file->getRealpath()), PHP_EOL);
+			}
+		}
+    }
 }
