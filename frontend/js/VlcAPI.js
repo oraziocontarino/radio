@@ -60,7 +60,7 @@ var VlcAPI = (function() {
                 "track_id" : $("currentplid", data).html(),
                 "time" : $("time", data).html(),
                 "length" : $("length", data).html(),
-                "track_name" : $("information info[name=artist]", element).html() == undefined ? $("information info[name=filename]", element).html() : $("information info[name=artist]", element).html()+" - "+$("information info[name=filename]", element).html()
+                "track_name" : $("information info[name=artist]", data).html() == undefined ? $("information info[name=filename]", data).html() : $("information info[name=artist]", data).html()+" - "+$("information info[name=filename]", data).html()
             };
         }
 
