@@ -16,6 +16,8 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "status":
+				echo "init status";	
+				return;
 				if(HelperFunctions::urlExists(ServerConfig::getBaseUrl().self::$endpoint["status"])){
 					echo "-AAA".self::getStatusResponse($request);
 				}
