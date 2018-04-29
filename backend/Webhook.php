@@ -16,9 +16,9 @@ class Webhook{
 		$output = [];
 		switch($request["api"]){
 			case "status":
-				echo "init status";	
+				echo "init status".ServerConfig::getBaseUrl().self::$endpoint["status"];	
 				return;
-				if(HelperFunctions::urlExists(ServerConfig::getBaseUrl().self::$endpoint["status"])){
+				if(HelperFunctions::urlExists("")){
 					echo "-AAA".self::getStatusResponse($request);
 				}
 				echo "VLC NON STARTATO! ".self::getStatusResponse($request);
