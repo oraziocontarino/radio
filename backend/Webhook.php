@@ -94,17 +94,21 @@ class Webhook{
 	}
 
 	private static function getStatusAPI(){
-		HelperFunctions::log("getStatusAPI begin");
+		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
-		HelperFunctions::log("getStatusAPI before parse");
-		try{
-			//$status = xml2ary(trim($xmlstr));
-			$status = new SimpleXMLElement(trim($xmlstr));
-		}catch(Exception $e){
-			HelperFunctions::log("getStatusAPI error parse");
+		$status = new SimpleXMLElement($xmlstr);
+		$output["state"] = strval($status->state);
+		$output["time"] = strval($status->time);
+		$output["length"] = strval($status->length);
+		$output["volume"] = strval($status->volume);
+		$output["track_id"] = strval($status->currentplid);
+		foreach($status->information->category[0]->info as $key => $value){
+			$attributes = $value->attributes();
+			if($attributes["name"] == "filename"){
+				$output["track_name"] = strval($value);
+			}
 		}
-		HelperFunctions::log("getStatusAPI after parse");
-		HelperFunctions::log("getStatusAPI end");
-		return $xmlstr;
+		$output["debug"] = $xmlstr;
+		return $output;
 	}
 }

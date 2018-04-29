@@ -53,21 +53,10 @@ var VlcAPI = (function() {
 				);
 			 });
         }
-        
-        function parseResponseStatusAPI(data){
-            data = JSON.parse(data); 
-            return {
-                "track_id" : $("currentplid", data).html(),
-                "time" : $("time", data).html(),
-                "length" : $("length", data).html(),
-                "track_name" : $("information info[name=artist]", data).html() == undefined ? $("information info[name=filename]", data).html() : $("information info[name=artist]", data).html()+" - "+$("information info[name=filename]", data).html()
-            };
-        }
 
 		return { //Return back the public methods
 			init : init,
-            getStatusAPI : getStatusAPI,
-            parseResponseStatusAPI : parseResponseStatusAPI,
+            getStatusAPI : getStatusAPI
 		};
 	};
 
