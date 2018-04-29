@@ -63,6 +63,7 @@ class Webhook{
 			$client_status = $request["vlcInterfaceStatus"];
 			$changed = false;
 			$current_update_count = 0;
+			return "bananeeeee";
 			while(!$changed){
 				$server_status = self::getStatusAPI();
 				$changed = self::compareStatus($client_status, $server_status);
