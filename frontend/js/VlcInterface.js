@@ -68,7 +68,7 @@ var VlcInterface = (function() {
 			//console.log("sending an update request to server...");
 			VlcAPI.getInstance().getStatusAPI(current_status).then(function(data){
 				//console.log("Got a response from server, something changed, gonna update it!");	
-				data = JSON.parse(data);
+				data = VlcApi.getInstance().parseResponseStatusAPI(data);
 				updateStatus(data);
 				current_status = data;
 				//console.log("UI has been updated.");

@@ -52,11 +52,22 @@ var VlcAPI = (function() {
 					})
 				);
 			 });
-		}
+        }
+        
+        function parseResponseStatusAPI(data){
+            data = JSON.parse(data); 
+            return {
+                "track_id" : $("currentplid", data).html(),
+                "time" : $("time", data).html(),
+                "length" : $("length", data).html(),
+                "track_name" : $("information info[name=artist]", element).html() == undefined ? $("information info[name=filename]", element).html() : $("information info[name=artist]", element).html()+" - "+$("information info[name=filename]", element).html()
+            };
+        }
 
 		return { //Return back the public methods
 			init : init,
-			getStatusAPI : getStatusAPI
+            getStatusAPI : getStatusAPI,
+            parseResponseStatusAPI : parseResponseStatusAPI,
 		};
 	};
 
