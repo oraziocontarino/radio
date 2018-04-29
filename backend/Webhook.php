@@ -100,7 +100,7 @@ class Webhook{
 		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
 		HelperFunctions::log($xmlstr);
 		try{
-			$status = new SimpleXMLElement($xmlstr);
+			$status = simplexml_load_file($xmlstr);
 		}catch(Exception $e){
 			HelperFunctions::log("getStatusAPI error SimpleXMLElement");
 			HelperFunctions::log($e->getMessage());
