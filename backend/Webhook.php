@@ -77,6 +77,7 @@ class Webhook{
 				$current_update_count ++;
 			}
 		}
+		HelperFunctions::log("getStatusResponse finished A");
 		return json_encode($server_status);
 	}
 	private static function compareStatus($client_status, $server_status){
@@ -94,40 +95,9 @@ class Webhook{
 
 	private static function getStatusAPI(){
 		HelperFunctions::log("getStatusAPI init");
-		$output = [];
 		$xmlstr = file_get_contents(ServerConfig::getBaseUrl().self::$endpoint["status"]);
 		HelperFunctions::log("getStatusAPI before file get contents");
-		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
 		HelperFunctions::log($xmlstr);
-		try{
-			$status = simplexml_load_file($xmlstr);
-		}catch(Exception $e){
-			HelperFunctions::log("getStatusAPI error SimpleXMLElement");
-			HelperFunctions::log($e->getMessage());
-		}
-		HelperFunctions::log("getStatusAPI after SimpleXMLElement");
-		HelperFunctions::log("getStatusAPI 1");
-		$output["state"] = strval($status->state);
-		HelperFunctions::log("getStatusAPI 1");
-		$output["time"] = strval($status->time);
-		HelperFunctions::log("getStatusAPI 1");
-		$output["length"] = strval($status->length);
-		HelperFunctions::log("getStatusAPI 1");
-		$output["volume"] = strval($status->volume);
-		HelperFunctions::log("getStatusAPI 1");
-		$output["track_id"] = strval($status->currentplid);
-		HelperFunctions::log("getStatusAPI 1");
-		foreach($status->information->category[0]->info as $key => $value){
-			$attributes = $value->attributes();
-			if($attributes["name"] == "filename"){
-				$output["track_name"] = strval($value);
-			}
-		}
-		HelperFunctions::log("getStatusAPI 4");
-		
-		$output["debug"] = $xmlstr;
-		HelperFunctions::log("getStatusAPI end");
-		HelperFunctions::log($output);
-		return $output;
+		return $xmlstr;
 	}
 }
