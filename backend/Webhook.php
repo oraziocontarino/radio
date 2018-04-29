@@ -100,17 +100,24 @@ class Webhook{
 		HelperFunctions::log("getStatusAPI before SimpleXMLElement");
 		$status = new SimpleXMLElement($xmlstr);
 		HelperFunctions::log("getStatusAPI after SimpleXMLElement");
+		HelperFunctions::log("getStatusAPI 1");
 		$output["state"] = strval($status->state);
+		HelperFunctions::log("getStatusAPI 1");
 		$output["time"] = strval($status->time);
+		HelperFunctions::log("getStatusAPI 1");
 		$output["length"] = strval($status->length);
+		HelperFunctions::log("getStatusAPI 1");
 		$output["volume"] = strval($status->volume);
+		HelperFunctions::log("getStatusAPI 1");
 		$output["track_id"] = strval($status->currentplid);
+		HelperFunctions::log("getStatusAPI 1");
 		foreach($status->information->category[0]->info as $key => $value){
 			$attributes = $value->attributes();
 			if($attributes["name"] == "filename"){
 				$output["track_name"] = strval($value);
 			}
 		}
+		HelperFunctions::log("getStatusAPI 4");
 		
 		$output["debug"] = $xmlstr;
 		HelperFunctions::log("getStatusAPI end");
