@@ -77,7 +77,6 @@ class Webhook{
 				$current_update_count ++;
 			}
 		}
-		sleep(10);
 		return json_encode($server_status);
 	}
 	private static function compareStatus($client_status, $server_status){

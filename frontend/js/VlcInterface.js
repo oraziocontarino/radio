@@ -75,8 +75,8 @@ var VlcInterface = (function() {
 				startUpdateStatusScheduler();
 			}).catch(function(data){
 				//console.log(data);
-				//console.log("Something went wrong, gonna try again with next update.");
-				startUpdateStatusScheduler();
+				console.log("Something went wrong, gonna try again with next update.");
+				setTimeout(startUpdateStatusScheduler, 1000);
 			});
 		}
 		
