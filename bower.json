@@ -1,0 +1,31 @@
+{
+    "name": "radio-project",
+    "description": "The Laravel 5.4 framework",
+    "keywords": [
+      "framework",
+      "laravel",
+      "laravel 5.4",
+      "template",
+      "bootstrap",
+      "responsive",
+      "admin",
+      "php",
+      "html",
+      "css"
+    ],
+    "main": "",
+    "authors": [
+      "Orazio"
+    ],
+    "license": "MIT",
+    "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "test",
+      "tests"
+    ],
+    "dependencies": {
+    }
+  }
+  
