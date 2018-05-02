@@ -14,14 +14,19 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/routes.js') }}"></script>
-        <script src="{{ asset('js/router.js') }}"></script>
-        <script src="{{ asset('js/VlcAPI.js') }}"></script>
+        <!--
+			<script src="{{ asset('js/routes.js') }}"></script>
+        	<script src="{{ asset('js/router.js') }}"></script>
+        -->
+		<script src="{{ asset('js/VlcAPI.js') }}"></script>
         <script src="{{ asset('js/VlcInterface.js') }}"></script>
 
 	</head>
 <body>
 <script>
+var route = {
+	'VlcApiControllerStatus' : '{{route(VlcApiControllerStatus)}}',
+};
 $(document).ready(function(){
 	var vlcInterface = VlcInterface.getInstance();
 	$( ".player-commands .play-button" ).on("click",function() {
