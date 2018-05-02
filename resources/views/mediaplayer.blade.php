@@ -25,7 +25,7 @@
 <body>
 <script>
 var route = {
-	'VlcApiControllerStatus' : '{{route(VlcApiControllerStatus)}}',
+	'VlcApiControllerStatus' : '{{route("VlcApiControllerStatus")}}',
 };
 $(document).ready(function(){
 	var vlcInterface = VlcInterface.getInstance();
