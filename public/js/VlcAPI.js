@@ -20,7 +20,7 @@ var VlcAPI = (function() {
 				resolve(
 					$.ajax({
 						type: "POST",
-                        url: route['VlcApiControllerStatus'],
+                        url: route('VlcApiControllerStatus'),
                         data: {_token : $('meta[name="csrf-token"]').attr('content'), client_status : client_status}
 					})
 				);
