@@ -14,7 +14,6 @@ class RadioController extends Controller
 
     public function mediaplayer(Request $request)
     {
-        Log::debug("webhook received a message");
         $time_start = $this->microtime_float();
 
         //return view('radio', ['bot_list' => $bot_list]);
