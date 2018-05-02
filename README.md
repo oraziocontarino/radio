@@ -12,6 +12,9 @@ Just berofre `</VirtualHost>` tag add:
 - `AllowOverride all`  
 - `Require all granted`  
 - `</Directory>`  
+Then  
+- `sudo a2enmod rewrite`  
+- `sudo service apache2 restart`  
 3. Install php7  
 - `sudo apt-get install php7.0 -y`  
 - `sudo apt-get install php-mbstring -y`  
