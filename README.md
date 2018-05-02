@@ -20,4 +20,8 @@ Configuration
 12. `gulp`  
 13. `composer update`  
 14. `sudo chmod 777 -R /var/www/project-radio.com/public_html/radio/storage/framework/sessions`
-15. `sudo chmod 777 -R /var/www/project-radio.com/public_html/radio/storage/framework/views`
+15. `sudo chmod 777 -R /var/www/project-radio.com/public_html/radio/storage/framework/views`  
+
+utils  
+`composer create-project --prefer-dist laravel/laravel projectName 5.4`  
+ 
