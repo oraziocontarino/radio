@@ -18,7 +18,7 @@ Route::match(array('GET','POST'),'/', 'RadioController@mediaplayer')->name('medi
 Route::match(array('GET','POST'),'/api/vlc/status', 'VlcApiController@status')->name('VlcApiControllerStatus');
 
 // Routes
-/*
+
 Route::get('/js/routes.js', function () {
     Log::debug("route reloaded!");
 	//$routes = Cache::rememberForever('routes.js', function () {
@@ -34,4 +34,3 @@ Route::get('/js/routes.js', function () {
 	echo('window.routes = ' . json_encode($routes) . ';');
     exit();
 })->name('assets.routes');
-*/
