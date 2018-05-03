@@ -28,18 +28,13 @@ var VlcInterface = (function() {
 		
 		/* UI COMMANDS */
 
-		function playCurrentTrack(){
-			$(".player-commands .play-button").addClass("hidden");
-			$(".player-commands .pause-button").removeClass("hidden");
-			playEqualizer();
-			playProgressBar();
-		}
-		
-		function pauseCurrentTrack(){
-			$(".player-commands .pause-button").addClass("hidden");
-			$(".player-commands .play-button").removeClass("hidden");
-			pauseEqualizer();
-			pauseProgressBar();
+		function playPauseCurrentTrack(){
+			VlcAPI.getInstance().playPauseTrackAPI(current_status.track_id).then(function(data){
+				console.log("played track");
+			}).catch(function(data){
+				//console.log(data);
+				console.log("Error");
+			});
 		}
 		function stopCurrentTrack(){
 			$(".player-commands .pause-button").addClass("hidden");
@@ -203,8 +198,7 @@ var VlcInterface = (function() {
 				
 		return { //Return back the public methods
 			init : init,
-			playCurrentTrack : playCurrentTrack,
-			pauseCurrentTrack : pauseCurrentTrack,
+			playPauseCurrentTrack : playPauseCurrentTrack,
 			playNextTrack : playNextTrack,
 			playPrevTrack : playPrevTrack,
 			stopUpdateStatusScheduler: startUpdateStatusScheduler,

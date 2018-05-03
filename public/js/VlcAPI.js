@@ -26,10 +26,23 @@ var VlcAPI = (function() {
 				);
 			 });
         }
-
+		
+		function playPauseTrackAPI(track_id)
+		{
+			return new Promise(function(resolve, reject) {
+				resolve(
+					$.ajax({
+						type: "POST",
+                        url: route('VlcApiControllerPlayPauseTrack'),
+                        data: {_token : $('meta[name="csrf-token"]').attr('content'), track_id : track_id}
+					})
+				);
+			 });
+        }
 		return { //Return back the public methods
 			init : init,
-            getStatusAPI : getStatusAPI
+            getStatusAPI : getStatusAPI,
+            playPauseTrackAPI : playPauseTrackAPI
 		};
 	};
 

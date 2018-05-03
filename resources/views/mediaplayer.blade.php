@@ -28,7 +28,7 @@
 $(document).ready(function(){
 	var vlcInterface = VlcInterface.getInstance();
 	$( ".player-commands .play-button" ).on("click",function() {
-			//VlcInterface.getInstance().playCurrentTrack();
+			VlcInterface.getInstance().playPauseCurrentTrack();
 		}
 	);
 	

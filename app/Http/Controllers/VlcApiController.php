@@ -5,11 +5,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use App\Radio\ScriptManager;
+
 class VlcApiController extends Controller
 {
 	private $update_delay_ms = 100;
     private $max_delay_count = 2000;
-    
+    private $SERVER_API_ENDPOINT = "http://:banana@localhost:8080/requests";
     public function __construct()
     {
         //...
@@ -18,6 +20,10 @@ class VlcApiController extends Controller
         $var = $request->all();
         return $this->getStatusResponse($request);
     }
+
+	public function playPauseTrack(Request $request){
+		return $this->playPauseTrackAPI($request);
+	}
 
     private function microtime_float()
     {
@@ -63,7 +69,7 @@ class VlcApiController extends Controller
 
 	private function getStatusAPI(){
 		$output = [];
-		$xmlstr = file_get_contents("http://:banana@localhost:8080/requests/status.xml");
+		$xmlstr = file_get_contents($this->SERVER_API_ENDPOINT."/status.xml");
 		$status = new \SimpleXMLElement($xmlstr);
 		$output["state"] = strval($status->state);
 		$output["time"] = strval($status->time);
@@ -80,6 +86,16 @@ class VlcApiController extends Controller
 		return $output;
 	}
 
+	private function playPauseTrackAPI($request){
+		$track_id = $request->get("track_id");
+		if(empty($track_id)){
+			abort(500, "track_id not found");
+		}
+		$output = [];
+		$xmlstr = file_get_contents($this->SERVER_API_ENDPOINT."/status.xml?command=pl_pause&id=".$track_id);
+		return "true";
+	}
+
 	private function getDirectoriesWithMp3(){
 		HelperFunctions::log("getDirectoriesWithMp3 1");
         $dirs = array_filter(glob('*'), 'is_dir');
@@ -94,5 +110,6 @@ class VlcApiController extends Controller
 			}
 		}
 		HelperFunctions::log("getDirectoriesWithMp3 5");
-    }
+	}
+	
 }
