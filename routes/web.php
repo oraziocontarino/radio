@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Log;
 
 Route::match(array('GET','POST'),'/', 'RadioController@mediaplayer')->name('mediaplayer');
 Route::match(array('GET','POST'),'/getDirectories', 'RadioController@getDirectories')->name('getDirectories');
-Route::match(array('GET','POST'),'/getTrackList', 'RadioController@getTrackList')->name('getTrackList');
+Route::match(array('GET','POST'),'/getTracksList', 'RadioController@getTracksList')->name('getTracksList');
 Route::match(array('GET','POST'),'/api/vlc/status', 'VlcApiController@status')->name('VlcApiControllerStatus');
 Route::match(array('GET','POST'),'/api/vlc/playPauseTrack', 'VlcApiController@playPauseTrack')->name('VlcApiControllerPlayPauseTrack');
 

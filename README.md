@@ -42,4 +42,5 @@ Then
 Utils  
 `composer create-project --prefer-dist laravel/laravel projectName 5.4`  
 `vlc --intf http --http-host localhost -LZ "/var/www/project-radio.com/public_html/radio/track"`  
+`vlc.exe --intf http --http-host localhost -LZ "E:/Desktop/media/pi/rock1"`  
 

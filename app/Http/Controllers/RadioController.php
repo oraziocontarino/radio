@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\File;
 
 class RadioController extends Controller
 {
-    private $WINDOWS_BASE_PATH = "C:/Users/utente/Desktop/media/pi";
-    private $LINUX_BASE_PATH = "/media/pi";
     public function __construct()
     {
         //...
@@ -50,17 +48,18 @@ class RadioController extends Controller
         if(empty($user_path)){
             abort(500, "HTTP 'user_path' is requiered!");
         }
-        $directories = HelperFunctions::getDirectories($this->WINDOWS_BASE_PATH, $this->LINUX_BASE_PATH, $user_path);
+        $directories = HelperFunctions::getDirectoriesList($user_path);
         
         return json_encode($directories);
     }
    
-    public function getTrackList(Request  $request){
-        $files = File::glob("C:/Users/utente/Desktop/media/pi/*.mp3");
-
-        echo print_r($files, true);
-        return $files;
-        //echo "this is a test function";
-        //return "this is a test function";
+    public function getTracksList(Request  $request){
+        $user_path = $request->get('user_path');
+        if(empty($user_path)){
+            abort(500, "HTTP 'user_path' is requiered!");
+        }
+        $files = HelperFunctions::getFilesList($user_path);
+       
+        return json_encode($files);
     }
 }
