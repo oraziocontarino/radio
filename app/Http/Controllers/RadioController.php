@@ -55,4 +55,12 @@ class RadioController extends Controller
         return json_encode($directories);
     }
    
+    public function getTrackList(Request  $request){
+        $files = File::glob("C:/Users/utente/Desktop/media/pi/*.mp3");
+
+        echo print_r($files, true);
+        return $files;
+        //echo "this is a test function";
+        //return "this is a test function";
+    }
 }
