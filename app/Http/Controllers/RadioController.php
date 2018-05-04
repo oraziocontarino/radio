@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Radio\HelperFunctions;
+use Illuminate\Support\Facades\File;
 
 class RadioController extends Controller
 {
@@ -16,8 +17,12 @@ class RadioController extends Controller
         //...
     }
     public function test(Request $request){
-        echo "this is a test function";
-        return "this is a test function";
+        $files = File::glob("C:/Users/utente/Desktop/media/pi/*.mp3");
+
+        echo print_r($files, true);
+        return $files;
+        //echo "this is a test function";
+        //return "this is a test function";
 
     }
     public function mediaplayer(Request $request)
