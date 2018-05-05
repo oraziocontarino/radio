@@ -27,6 +27,7 @@ Then
 - `exit`  
 - `node -v` should be 9.x.x  
 - `npm -v` should be 5.x.x  
+- `npm install`  
 5. Install composer  
 - `curl -sS https://getcomposer.org/installer | php`  
 - `sudo mv composer.phar /usr/local/bin/composer`  
@@ -38,9 +39,10 @@ Then
 - `sudo find /var/www/project-radio/radio -type d -exec chmod 775 {} \;`  
 - `sudo find /var/www/project-radio/radio -type f -exec chmod 664 {} \;`  
 
-
 Utils  
 `composer create-project --prefer-dist laravel/laravel projectName 5.4`  
 `vlc --intf http --http-host localhost -LZ "/var/www/project-radio.com/public_html/radio/track"`  
 `vlc.exe --intf http --http-host localhost -LZ "E:/Desktop/media/pi/rock1"`  
+`sass-composer index.scss -o index.css`  
+
 
