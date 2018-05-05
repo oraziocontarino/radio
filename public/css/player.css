@@ -143,8 +143,18 @@ progress::-webkit-progress-bar {
     top: 0px;
 }
 
+ul.categoriesList{
+    display: inline-flex;
+}
 
-
+li.category{
+    display: inline-flex;
+    padding-top: 10%;
+}
+.categoryElement {
+    height: 130px;
+    background-color: red;
+}
 
 
 

@@ -154,8 +154,25 @@ $('.progress-pointer').on('mousedown', function() {
 </nav>
 
 <div class="container no-padding no-margin">
-	<div class="container-content default-container"></div>
-	<div class="container-content categories-container hidden"></div>
+	<div class="container-content default-container hidden"></div>
+	<div class="container-content categories-container">
+	
+<ul class="categoriesList">
+    <li class="category">
+		<div class="categoryElement">
+			<div class="categoryElementImage col-md-12" style="height: 80%"></div>
+			<div class="categoryElementInfo col-md-12" style="height: 15%">Rock1 - 255 tracks</div>
+		</div>
+	</li>
+    <li class="category">
+		<div class="categoryElement">
+			<div class="categoryElementImage col-md-12" style="height: 80%"></div>
+			<div class="categoryElementInfo col-md-12" style="height: 15%">Rock2 - 255 tracks</div>
+		</div>
+	</li>
+</ul>
+
+	</div>
 	<div class="container-content tracks-list-container hidden"></div>
 </div>
 
