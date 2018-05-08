@@ -28,8 +28,8 @@ class RadioController extends Controller
         $time_start = $this->microtime_float();
 
         //return view('radio', ['bot_list' => $bot_list]);
-        //return view('mediaplayer');
-        return view('mediaplayer2'); 
+        return view('mediaplayer2');
+        //return view('mediaplayer2'); 
     }
 
     private function microtime_float()

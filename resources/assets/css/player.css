@@ -1,3 +1,15 @@
+body{
+    background-color: #000;
+}
+footer{
+    border-top: solid 1px #ccc;
+    /*
+    padding-bottom: 20px;
+    */
+}
+nav{
+    height: 100%;
+}
 .no-padding{
 	padding: 0px !important;
 }
@@ -14,11 +26,7 @@
 	height: inherit;
 }
 .default-container{
-	background-image: url(../images/default-wallpaper.jpg);
-}
-.navbar{
-	padding-bottom: 20px;
-	border-top: solid 1px #ccc;
+	background-image: url(../img/default-wallpaper.jpg);
 }
 .track-time{
 	color: #fff;
@@ -48,28 +56,28 @@
     background-repeat: no-repeat;
 }
 .player-commands .prev-button{
-    background-image: url(../images/prev-button.png);
+    background-image: url(../img/prev-button.png);
 }
 .player-commands .play-button{
-    background-image: url(../images/play-button.png);
+    background-image: url(../img/play-button.png);
 }
 .player-commands .pause-button{
-    background-image: url(../images/pause-button.png);
+    background-image: url(../img/pause-button.png);
 }
 .player-commands .next-button{
-    background-image: url(../images/next-button.png);
+    background-image: url(../img/next-button.png);
 }
 .player-commands .categories-button{
-    background-image: url(../images/categories-button.png);
+    background-image: url(../img/categories-button.png);
 }
 .player-commands .playlist-button{
-    background-image: url(../images/playlist-button.png);
+    background-image: url(../img/playlist-button.png);
 }
 .player-commands .replay-button{
-    background-image: url(../images/replay-button.png);
+    background-image: url(../img/replay-button.png);
 }
 .player-commands .change-wallpaper-button{
-    background-image: url(../images/change-wallpaper-button.png);
+    background-image: url(../img/change-wallpaper-button.png);
 }
 
 
@@ -154,9 +162,12 @@ li.category{
 .categoryElement {
     height: 130px;
     background-color: red;
+    margin-right: 10px;
 }
 
-
+#pnProductNavContents {
+    height: 100px;
+}
 
 
 

@@ -21,6 +21,10 @@
 		<script src="{{ asset('js/VlcAPI.js') }}"></script>
         <script src="{{ asset('js/VlcInterface.js') }}"></script>
 
+        <link href="{{ asset('css/template1.css') }}" rel="stylesheet">
+		<script src="{{ asset('js/template1.js') }}"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
 	</head>
 <body>
 <script>
@@ -79,7 +83,54 @@ $('.progress-pointer').on('mousedown', function() {
 */
 });
 </script>
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
+<div class="item-mb">
+	<div class="col-sm-3 text-center">
+		<img src="http://localhost/radio/img/prev-button.png">
+	</div>
+	<div class="col-sm-9 text-center">
+		<h3 class="title-medium-dark mb-none">
+		<a href="category-grid-layout1.html">Electronics</a>
+	</h3>
+	<div class="view">(19,805)</div>
+		<p>Emply dummy text of the printing and taypng industrxt ever sincknown.</p>
+	</div>
+</div>
+
+<div class="container no-padding no-margin">
+	<div class="container-content default-container hidden"></div>
+	<div class="container-content default-container categories-container">
+	
+<nav id="pnProductNav" class="pn-ProductNav">
+    <div id="pnProductNavContents" class="pn-ProductNav_Contents">
+        <a href="#" class="pn-ProductNav_Link" aria-selected="true">Chairs</a>
+        <a href="#" class="pn-ProductNav_Link">Tables</a>
+        <a href="#" class="pn-ProductNav_Link">Cookware</a>
+        <a href="#" class="pn-ProductNav_Link">Beds</a>
+        <a href="#" class="pn-ProductNav_Link">Desks</a>
+        <a href="#" class="pn-ProductNav_Link">Flooring</a>
+        <a href="#" class="pn-ProductNav_Link">Lighting</a>
+        <a href="#" class="pn-ProductNav_Link">Mattresses</a>
+        <a href="#" class="pn-ProductNav_Link">Solar Panels</a>
+        <a href="#" class="pn-ProductNav_Link">Bookcases</a>
+        <a href="#" class="pn-ProductNav_Link">Mirrors</a>
+        <a href="#" class="pn-ProductNav_Link">Rugs</a>  
+        <a href="#" class="pn-ProductNav_Link">Curtains &amp; Blinds</a>  
+        <a href="#" class="pn-ProductNav_Link">Frames &amp; Pictures</a>  
+        <a href="#" class="pn-ProductNav_Link">Wardrobes</a>  
+        <a href="#" class="pn-ProductNav_Link">Storage</a>  
+        <a href="#" class="pn-ProductNav_Link">Decoration</a>  
+        <a href="#" class="pn-ProductNav_Link">Appliances</a>
+		 <a href="#" class="pn-ProductNav_Link">Racks</a>
+        <a href="#" class="pn-ProductNav_Link">Worktops</a>
+    </div>
+</nav>
+
+	</div>
+	<div class="container-content tracks-list-container hidden"></div>
+</div>
+
+<!-- bottom bar -->
+<footer>
 	<div class="container-fluid">
 
 		<ul class="nav navbar-nav">
@@ -151,30 +202,6 @@ $('.progress-pointer').on('mousedown', function() {
 		</ul>
 
 	</div>
-</nav>
-
-<div class="container no-padding no-margin">
-	<div class="container-content default-container hidden"></div>
-	<div class="container-content categories-container">
-	
-<ul class="categoriesList">
-    <li class="category">
-		<div class="categoryElement">
-			<div class="categoryElementImage col-md-12" style="height: 80%"></div>
-			<div class="categoryElementInfo col-md-12" style="height: 15%">Rock1 - 255 tracks</div>
-		</div>
-	</li>
-    <li class="category">
-		<div class="categoryElement">
-			<div class="categoryElementImage col-md-12" style="height: 80%"></div>
-			<div class="categoryElementInfo col-md-12" style="height: 15%">Rock2 - 255 tracks</div>
-		</div>
-	</li>
-</ul>
-
-	</div>
-	<div class="container-content tracks-list-container hidden"></div>
-</div>
-
+</footer>
 </body>
 </html>
