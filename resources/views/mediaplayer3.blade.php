@@ -17,7 +17,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.7/jquery.jcarousel-control.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.7/jquery.jcarousel-autoscroll.min.js"></script>
         -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
 <style>
@@ -43,7 +43,8 @@ body {
 
 div.container {
 	width: 310px;
-	height: 480px;
+	/*height: 480px;*/
+	height: 100%;
 	margin: 5% auto 0;
   position: relative;
   background: #333;
