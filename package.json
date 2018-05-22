@@ -15,7 +15,10 @@
     "vue": "^2.0.1"
   },
   "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
     "owl-carousel": "^1.0.0",
-    "sass-composer": "^2.0.0-beta16"
+    "sass-composer": "^2.0.0-beta9",
+    "slick-carousel": "^1.8.1"
   }
 }

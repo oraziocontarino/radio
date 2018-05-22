@@ -22,8 +22,8 @@
 	</head>
 
 <body class="fullPage">
+<div class="fullPage defaultBackground"></div>
 <div class="mhn-player fullPage">
-<div class="album-art hidden"></div>
 <div class="play-list hidden">
 	<a href="#" class="play"
 		data-id="1"
