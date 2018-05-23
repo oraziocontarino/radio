@@ -1,35 +1,5 @@
 $(document).ready(function(){
-    $('.jcarousel').jcarousel({
-			wrap: 'circular'
-    });
-	
-    $('.jcarousel-pagination').jcarouselPagination({
-        item: function(page) {
-            return '<li id="jcarousel-item' + page + '"><a href="#' + page + '">' + page + '</a></li>';
-        }
-    });
-	
-    $('#jcarousel-item1').addClass('active');
-	
-    $('.jcarousel-pagination').on('jcarouselpagination:active', 'li', function() {
-        $(this).addClass('active');
-    }).on('jcarouselpagination:inactive', 'li', function() {
-        $(this).removeClass('active');
-    });
-
-    $(".options a").click(function() {
-        $(this).toggleClass("active");
-    });
-
-    $(".favorite").click(function() {
-        if($(".options .favorite i").hasClass("fa-heart")) {
-            $(".options .favorite i").removeClass("fa-heart").addClass("fa-heart-o");
-        }
-        else {
-            $(".options .favorite i").removeClass("fa-heart-o").addClass("fa-heart");
-        }
-    });
-
+    var currentPlayingComponentSelector = "#currentPlayingComponent";
     $(".play").click(function() {
         $(".play").toggleClass("active");
         if($(".play i").hasClass("fa-play")) {
@@ -73,15 +43,6 @@ $(document).ready(function(){
             $(".volume-slider").animate({marginTop: '100%'}, 500);
     })
 
-    $(".side-menu-trigger").click(function(){
-        $(".side-menu").animate({marginLeft: '0px'});
-            $(".volume-slider").animate({marginTop: '0px'}, 500);
-    }); 
-
-    $(".side-menu li a, .side-menu .close").click(function(){
-        $(".side-menu").animate({marginLeft: '-100%'});
-    }); 
-
     $('.volume-slider input[type="range"]').on('input', function () {
                 var percent = Math.ceil(((this.value - this.min) / (this.max - this.min)) * 100);
                 console.log(this.min);
@@ -98,12 +59,7 @@ $(document).ready(function(){
         setVolume((ui.value) / 100);
         }
     });
-
-
-    setTrackSlider();
-
-    initMenuEventController();
-
+    setTrackSlider(currentPlayingComponentSelector);
 });
 
 function setVolume(myVolume) {
@@ -140,8 +96,8 @@ function getTrackArray(){
     return trackList;
 }
 
-function setTrackSlider(){
-    var slickElementSelector = "#currentPlayingView .slider";
+function setTrackSlider(currentPlayingComponentSelector){
+    var slickElementSelector = currentPlayingComponentSelector+" .slider";
     try{ 
         $(slickElementSelector).slick('unslick'); 
         $(slickElementSelector).empty();
@@ -174,8 +130,8 @@ function setTrackSlider(){
         prevArrow: prevTrackSliderButton.html(),
     });
 
-    $('#currentPlayingView .jcarousel-prev').click(function() {
-        $("#currentPlayingView .prevTrackSliderButton").click();
+    $(currentPlayingComponentSelector+" .jcarousel-prev").click(function() {
+        $(currentPlayingComponentSelector+" .prevTrackSliderButton").click();
         /*
         $('.jcarousel').jcarousel('scroll', '-=1');
         
@@ -209,8 +165,8 @@ function setTrackSlider(){
         */
     });
 
-    $('#currentPlayingView .jcarousel-next').click(function() {
-        $("#currentPlayingView .nextTrackSliderButton").click();
+    $(currentPlayingComponentSelector+" .jcarousel-next").click(function() {
+        $(currentPlayingComponentSelector+" .nextTrackSliderButton").click();
         /*
         $('.jcarousel').jcarousel('scroll', '+=1');
         
@@ -241,21 +197,5 @@ function setTrackSlider(){
             $(".artist").html("Bring Me The Horizon");
         };
         */
-    });
-}
-
-
-function initMenuEventController(){    
-    $(".side-menu li").on("click", function(){
-        if ($(".side-menu li.active a").attr("class") == $("a", $(this)).attr("class")) {
-            console.log("nothing to change");
-            return;
-        }
-        $(".side-menu li.active").removeClass("active");
-        $(this).addClass("active");
-    });
-
-    $(".side-your-playlist").on("click", function(){
-        console.log("show folder list")
     });
 }

@@ -356,7 +356,7 @@ div.length input[type="range"] {
 	display: none !important;
 }
 
-.sliderTrackCover{
+.sliderTrackCover, .sliderFolderCover{
 	width: 180px; 
 	margin-left: calc(50% - 90px);
 }

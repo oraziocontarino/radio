@@ -355,3 +355,8 @@ div.length input[type="range"] {
 .hidden{
 	display: none !important;
 }
+
+.sliderTrackCover, .sliderFolderCover{
+	width: 180px; 
+	margin-left: calc(50% - 90px);
+}
